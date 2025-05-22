@@ -85,13 +85,19 @@ order to model rotation."
 
 (defun virtual-ring-rotate-forwards (vring)
   "Rotate VRING forwards."
-  (let ((head (virtual-ring-head vring)))
-    (virtual-ring-set-head vring (1- head))))
+  (let ((head (virtual-ring-head vring))
+        (ring (virtual-ring-ring vring)))
+    (virtual-ring-set-head vring
+                           (ring-minus1 head
+                                        (ring-length ring)))))
 
 (defun virtual-ring-rotate-backwards (vring)
   "Rotate VRING backwards."
-  (let ((head (virtual-ring-head vring)))
-    (virtual-ring-set-head vring (1+ head))))
+  (let ((head (virtual-ring-head vring))
+        (ring (virtual-ring-ring vring)))
+    (virtual-ring-set-head vring
+                           (ring-plus1 head
+                                       (ring-length ring)))))
 
 (defun virtual-ring-remove-last (vring)
   "Remove the last (most recent) entry from VRING.
