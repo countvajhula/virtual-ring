@@ -17,7 +17,7 @@ virtual-ring
 
 A thin wrapper around Emacs's ring data structure that layers stateful, "virtual," rotation on top of the underlying fixed-size recency-aware ring.
 
-Virtual rings are a good fit in cases where you need to keep track both of recency of insertion as well as have an independent notion of stateful rotation. This may be useful to keep track of the "most recently used" entry on the ring, for instance.
+Virtual rings are a good fit in cases where you need to keep track both of recency of insertion as well as have an independent notion of stateful rotation to track a current "selection."
 
 Installation
 ------------
@@ -32,6 +32,36 @@ Virtual-ring is not on a package archive such as `MELPA <https://melpa.org/>`_ y
       :type git
       :host github
       :repo "countvajhula/virtual-ring"))
+
+Usage
+-----
+
+.. code-block:: elisp
+
+  ;; Create a new virtual ring that can hold 5 items
+  (setq my-history (virtual-ring-make 5))
+
+  ;; Store some items
+  (virtual-ring-store my-history "alpha")
+  (virtual-ring-store my-history "beta")
+  (virtual-ring-store my-history "gamma")
+
+  ;; "gamma" is both the most recently added AND the current entry
+  (virtual-ring-last-entry my-history) ; => "gamma"
+  (virtual-ring-current-entry my-history) ; => "gamma"
+
+  ;; Now, let's navigate the ring like a user pressing M-p (in a LIFO ring)
+  (virtual-ring-rotate-backwards my-history)
+
+  ;; The current selection has changed, but the most recent item is still the same.
+  (virtual-ring-current-entry my-history) ; => "beta"
+  (virtual-ring-last-entry my-history) ; => "gamma"
+
+  ;; Storing a new item resets the virtual head automatically, by default
+  (virtual-ring-store my-history "delta")
+
+  (virtual-ring-current-entry my-history) ; => "delta"
+  (virtual-ring-head my-history) ; => 0
 
 Non-Ownership
 -------------
