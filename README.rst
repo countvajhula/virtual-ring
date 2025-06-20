@@ -15,6 +15,10 @@
 virtual-ring
 ============
 
+A thin wrapper around Emacs's ring data structure that layers stateful, "virtual," rotation on top of the underlying fixed-size recency-aware ring.
+
+Virtual rings are a good fit in cases where you need to keep track both of recency of insertion as well as have an independent notion of stateful rotation. This may be useful to keep track of the "most recently used" entry on the ring, for instance.
+
 Installation
 ------------
 
