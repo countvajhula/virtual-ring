@@ -22,16 +22,7 @@ Virtual rings are a good fit in cases where you need to keep track both of recen
 Installation
 ------------
 
-Virtual-ring is not on a package archive such as `MELPA <https://melpa.org/>`_ yet, but you can install it using `Straight.el <https://github.com/radian-software/straight.el>`_ (or `Elpaca <https://github.com/progfolio/elpaca>`_) by putting this somewhere in your :code:`.emacs.d`:
-
-.. code-block:: elisp
-
-  (use-package virtual-ring
-    :straight
-    (virtual-ring
-      :type git
-      :host github
-      :repo "countvajhula/virtual-ring"))
+Virtual-ring is on `MELPA <https://melpa.org/>`_. You can install it in the usual way using your package manager of choice (e.g., `Straight.el <https://github.com/radian-software/straight.el>`_, `Elpaca <https://github.com/progfolio/elpaca>`_, or Emacs's built-in package.el), after ensuring you have MELPA in your configured list of package archives.
 
 Usage
 -----
