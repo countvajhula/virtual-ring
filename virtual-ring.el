@@ -2,7 +2,7 @@
 
 ;; Author: Sid Kasivajhula <sid@countvajhula.com>
 ;; URL: https://github.com/countvajhula/virtual-ring
-;; Version: 0.0
+;; Version: 0.1
 ;; Package-Requires: ((emacs "25.1"))
 
 ;; This file is NOT a part of Gnu Emacs.
