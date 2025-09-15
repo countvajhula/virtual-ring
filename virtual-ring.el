@@ -29,6 +29,7 @@
 ;;; Code:
 
 (require 'ring)
+(require 'seq)
 
 (defconst virtual-ring-default-size 20)
 
