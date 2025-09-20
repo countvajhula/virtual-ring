@@ -74,7 +74,7 @@ order to model rotation."
   (ring-empty-p (virtual-ring-ring vring)))
 
 (defun virtual-ring-last-entry (vring)
-  "The last command stored on the virtual ring VRING."
+  "The most recently stored command on the virtual ring VRING."
   (let ((ring (virtual-ring-ring vring)))
     (ring-ref ring 0)))
 
